@@ -34,8 +34,6 @@ step board = step' minChainLen board
 
 minChainLen = 3
 
--- | Find all horisontal chains, then find all
---   vertical chains, and then mark cells as cleared
 step' :: Int -> Board -> Board
 step' len = fill . mark len
 
@@ -61,4 +59,4 @@ markChains' len [] = []
 markChains' len (c:cs)
   | length c < len = c : markChains' len cs
   | otherwise      = map clearCell c : markChains' len cs
-  where clearCell c = Cell { value = value c, cleared = True }
+  where clearCell c = c { cleared = True }
