@@ -1,6 +1,6 @@
 module Main where
 
-import Board
+import           Board
 
 main = do
   let board = mkBoard [[1,2,3,4,5,6,7]
